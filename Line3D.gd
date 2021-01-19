@@ -26,23 +26,23 @@ func _process(delta):
 
 	# Prepare attributes for add_vertex.
 	set_normal(Vector3(0, 1, 0))
-	set_uv(Vector2(0, 0))
+	set_uv(Vector2(0, 1))
 	# Call last for each vertex, adds the above attributes.
 	#add_vertex(Vector3(-1, 0, -1))
 	add_vertex(transform_pos(Vector3(-1, 0, 0)))
 
 	set_normal(Vector3(0, 1, 0))
-	set_uv(Vector2(1, 0))
+	set_uv(Vector2(1, 1))
 	#add_vertex(Vector3(1 * end_point.x, 0, -1))
 	add_vertex(transform_pos(Vector3(1, 0, 0)))
 
 	set_normal(Vector3(0, 1, 0))
-	set_uv(Vector2(0, 1))
+	set_uv(Vector2(0, 0))
 	#add_vertex(Vector3(-1, 0, 1))
 	add_vertex(transform_pos(Vector3(-1, 0, 1)))
 
 	set_normal(Vector3(0, 1, 0))
-	set_uv(Vector2(1, 1))
+	set_uv(Vector2(1, 0))
 	#add_vertex(Vector3(1 * end_point.x, 0, 1))
 	add_vertex(transform_pos(Vector3(1, 0, 1)))
 
