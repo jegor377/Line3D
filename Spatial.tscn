@@ -5,9 +5,9 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Line3D" parent="." instance=ExtResource( 1 )]
-end_point = Vector3( -7.12609, 4.52085, 10.7594 )
+end_point = Vector3( 8.83218, 4.52085, 10.7594 )
 width = 1.271
 p = NodePath("../Position3D")
 
 [node name="Position3D" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12609, 4.52085, 10.7594 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83218, 4.52085, 10.7594 )
