@@ -5,19 +5,10 @@ export(Vector3) var end_point = Vector3.ONE
 export(float) var width = 1.0
 export(NodePath) var p
 
-func transform_pos(pos: Vector3) -> Vector3:
-	var d = end_point.length()
-	var t := Transform()
-	t = t.scaled(Vector3(width, 1, d))
-	t = t.looking_at(end_point, Vector3.UP)
-	t = t.scaled(-Vector3.ONE)
-	t.basis.z *= d
-	t.basis.x *= width
-	return pos.x * t.basis.x + pos.y * t.basis.y + pos.z * t.basis.z
-
 func _process(delta):
 	if p != '':
-		end_point = get_node(p).transform.origin
+		#end_point = get_node(p).transform.origin
+		set_end_point_from_glob_pos(get_node(p).transform.origin)
 	# Clean up before drawing.
 	clear()
 	
@@ -48,3 +39,16 @@ func _process(delta):
 
 	# End drawing.
 	end()
+
+func transform_pos(pos: Vector3) -> Vector3:
+	var d = end_point.length()
+	var t := Transform()
+	t = t.scaled(Vector3(width, 1, d))
+	t = t.looking_at(end_point, Vector3.UP)
+	t = t.scaled(-Vector3.ONE)
+	t.basis.z *= d
+	t.basis.x *= width
+	return pos.x * t.basis.x + pos.y * t.basis.y + pos.z * t.basis.z
+
+func set_end_point_from_glob_pos(pos: Vector3) -> void:
+	end_point = pos - transform.origin
