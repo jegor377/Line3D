@@ -1,5 +1,4 @@
 tool
-class_name Line3D
 extends ImmediateGeometry
 
 export(Vector3) var end_point = Vector3.ONE
