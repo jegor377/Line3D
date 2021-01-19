@@ -1,43 +1,34 @@
 tool
+class_name Line3D
 extends ImmediateGeometry
 
 export(Vector3) var end_point = Vector3.ONE
 export(float) var width = 1.0
-export(NodePath) var p
+export(NodePath) var end_point_node
 
 func _process(delta):
-	if p != '':
-		#end_point = get_node(p).transform.origin
-		set_end_point_from_glob_pos(get_node(p).transform.origin)
-	# Clean up before drawing.
+	if end_point_node != '':
+		set_end_point_from_glob_pos(get_node(end_point_node).transform.origin)
 	clear()
 	
-	# Begin draw.
 	begin(Mesh.PRIMITIVE_TRIANGLE_STRIP, null)
 
-	# Prepare attributes for add_vertex.
 	set_normal(Vector3(0, 1, 0))
 	set_uv(Vector2(0, 1))
-	# Call last for each vertex, adds the above attributes.
-	#add_vertex(Vector3(-1, 0, -1))
 	add_vertex(transform_pos(Vector3(-1, 0, 0)))
 
 	set_normal(Vector3(0, 1, 0))
 	set_uv(Vector2(1, 1))
-	#add_vertex(Vector3(1 * end_point.x, 0, -1))
 	add_vertex(transform_pos(Vector3(1, 0, 0)))
 
 	set_normal(Vector3(0, 1, 0))
 	set_uv(Vector2(0, 0))
-	#add_vertex(Vector3(-1, 0, 1))
 	add_vertex(transform_pos(Vector3(-1, 0, 1)))
 
 	set_normal(Vector3(0, 1, 0))
 	set_uv(Vector2(1, 0))
-	#add_vertex(Vector3(1 * end_point.x, 0, 1))
 	add_vertex(transform_pos(Vector3(1, 0, 1)))
 
-	# End drawing.
 	end()
 
 func transform_pos(pos: Vector3) -> Vector3:

@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Line3D",
+"language": "GDScript",
+"path": "res://addons/Line3D/Line3D.gd"
+} ]
 _global_script_class_icons={
-
+"Line3D": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="Line3D"
 run/main_scene="res://Spatial.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "Line3D" )
 
 [rendering]
 
